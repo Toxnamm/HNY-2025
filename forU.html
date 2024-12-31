@@ -12,29 +12,34 @@
                 padding: 0;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start; /* changed from center to flex-start */
+                justify-content: flex-start;
                 align-items: center;
                 height: 100vh;
                 background: linear-gradient(to right, #fbc2eb, #a6c1ee);
                 color: #4a4a4a;
                 text-align: center;
-                padding: 50px 20px 20px; /* Added padding-top for more space */
+                padding: 50px 20px 20px;
                 overflow-x: hidden;
+                position: relative;
             }
+
             /* Effect fireworks */
-            fireworks {
+            #fireworks {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                z-index: -1; /* ทำให้พลุอยู่ด้านหลังข้อความ */
+                z-index: -2; /* วางพลุไว้ด้านหลังสุด */
             }
+
             .main-title {
                 font-size: 2rem;
                 color: white;
                 margin-bottom: 20px;
+                z-index: 2; /* ข้อความอยู่ข้างบน */
             }
+
             .background-image {
                 position: fixed;
                 top: 0;
@@ -44,8 +49,9 @@
                 background-image: url('https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/38030.png');
                 background-position: center;
                 background-size: cover;
-                z-index: -1;
+                z-index: -1; /* ส่งภาพพื้นหลังไปข้างหลังสุด */
             }
+
             .card {
                 background: #ffffff;
                 border-radius: 20px;
@@ -53,30 +59,38 @@
                 padding: 20px 30px;
                 max-width: 400px;
                 line-height: 1.8;
-                margin-top: 50px; /* Adjust margin to move it further down */
-                margin-bottom: 20px;
+                margin-top: 50px;
+                margin-bottom: 0px;
+                position: relative;
+                z-index: 1; /* ตั้งให้ card อยู่ข้างบนของพลุ */
             }
+
             h1 {
                 font-size: 1.3rem;
                 margin: 10px 0;
                 color: #ff69b4;
             }
+
             p {
                 font-size: 0.8rem;
                 margin: 15px 0;
             }
+
             .signature {
                 margin-top: 20px;
                 font-weight: 500;
                 font-size: 1.1rem;
                 color: #ff7f50;
+                z-index: 2; /* ข้อความอยู่ข้างบน */
             }
+
             .image-gallery {
                 display: flex;
                 justify-content: center;
                 gap: 10px;
                 margin-top: 20px;
             }
+
             .image-gallery img {
                 width: 100px;
                 height: 100px;
@@ -84,6 +98,7 @@
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
                 object-fit: cover;
             }
+
             .marquee {
                 position: fixed;
                 bottom: 0;
@@ -95,10 +110,12 @@
                 padding: 10px 0;
                 animation: marquee 10s linear infinite;
             }
+
             @keyframes marquee {
                 0% { transform: translateX(100%); }
                 100% { transform: translateX(-100%); }
             }
+
             #music-button {
                 position: fixed;
                 bottom: 20px;
@@ -181,11 +198,13 @@
                 });
             }
 
-            canvas.addEventListener("click", (e) => {
+            function triggerFireworks() {
                 for (let i = 0; i < 50; i++) {
-                    createParticle(e.clientX, e.clientY);
+                    createParticle(Math.random() * canvas.width, Math.random() * canvas.height);
                 }
-            });
+            }
+
+            setInterval(triggerFireworks, 1500); // Trigger fireworks every 1.5 seconds
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
