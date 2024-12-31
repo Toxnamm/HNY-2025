@@ -1,113 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>    
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Happy New Year to เบนซ์</title>
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
-        <link
-             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-         />
-        <script
-            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-            type="module"
-        ></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const canvas = document.createElement("canvas");
-                canvas.id = "fireworks";
-                canvas.style.position = "fixed";
-                canvas.style.top = 0;
-                canvas.style.left = 0;
-                canvas.style.width = "100%";
-                canvas.style.height = "100%";
-                canvas.style.pointerEvents = "none";
-                document.body.appendChild(canvas);
-        
-                const ctx = canvas.getContext("2d");
-                const particles = [];
-                const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#C70039", "#900C3F"];
-        
-                function resizeCanvas() {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                }
-                window.addEventListener("resize", resizeCanvas);
-                resizeCanvas();
-        
-                function createParticle(x, y) {
-                    const particle = {
-                        x,
-                        y,
-                        size: Math.random() * 5 + 2,
-                        speedX: Math.random() * 4 - 2,
-                        speedY: Math.random() * 4 - 2,
-                        color: colors[Math.floor(Math.random() * colors.length)],
-                        life: Math.random() * 60 + 30,
-                    };
-                    particles.push(particle);
-                }
-        
-                function animateParticles() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    for (let i = particles.length - 1; i >= 0; i--) {
-                        const p = particles[i];
-                        p.x += p.speedX;
-                        p.y += p.speedY;
-                        p.life--;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                        ctx.fillStyle = p.color;
-                        ctx.fill();
-        
-                        if (p.life <= 0) {
-                            particles.splice(i, 1);
-                        }
-                    }
-                }
-        
-                canvas.addEventListener("click", (e) => {
-                    for (let i = 0; i < 50; i++) {
-                        createParticle(e.clientX, e.clientY);
-                    }
-                });
-        
-                function loop() {
-                    animateParticles();
-                    requestAnimationFrame(loop);
-                }
-                loop();
-            });
-        </script>
-
-    </head>
-    <body>
-        <!-- เพิ่มหัวข้อ HNY 2025 ที่ด้านบนของหน้า -->
-        <h2 class="main-title">Welcome to Benz’s countdown gift card 💕</h2>
-
-        <div class="background-image"></div>
-    
-        <div class="card">
-            <h1>To… เบนซ์แฟนที่น่ารักที่สุดของนิว 🦛💕</h1>
-            <p>
-                อีกไม่นานก็จะปีใหม่แล้วนะอ้วง! ที่ผ่านมาเค้ารู้สึกโชคดีมากที่มีอ้วนอยู่ในชีวิตเค้า อาจจะทำให้อ้วนเศร้าบ้างในปีนี้ เค้าขอโทษนะ เค้ารักอ้วนมากๆ ถึงจะงี่เง่าก็ตาม อะไรที่ไม่ดีทิ้งไว้ที่ปีที่แล้วนะ
-            </p>
-            <p>
-                ปีใหม่นี้ ขอให้อ้วนมีความสุขมากๆ ยิ้มเยอะๆ เค้าจะอยู่ข้างๆอ้วนเสมอ ไม่ว่าจะปีไหนหรือเวลาใด
-            </p>
-            <p class="signature">
-                โตไปด้วยกันนะงับอ้วน รักเบนซ์เสมอนะ 🤍
-            </p>
-        </div>
-
-        <!-- เพิ่มรูปภาพ 3 รูป -->
-        <div class="image-gallery">
-            <img src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/834aa2da-c043-42f3-bb8f-a1cc599325ad.png" alt="รูปที่ 1">
-            <img src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/PHOTO2.png" alt="รูปที่ 2">
-            <img src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/PHOTO3.png" alt="รูปที่ 3">
-        </div>
-
-        <style> 
+        <style>
             body {
                 font-family: 'Kanit', sans-serif;
                 margin: 0;
@@ -120,12 +18,11 @@
                 background: linear-gradient(to right, #fbc2eb, #a6c1ee);
                 color: #4a4a4a;
                 text-align: center;
-                padding: 20px;
                 overflow-x: hidden;
             }
             .main-title {
                 font-size: 2rem;
-                color: white; /* ปรับสีเป็นสีขาว */
+                color: white;
                 margin-bottom: 20px;
             }
             .background-image {
@@ -163,8 +60,6 @@
                 font-size: 1.1rem;
                 color: #ff7f50;
             }
-        
-            /* สไตล์สำหรับแกลเลอรี่รูปภาพ */
             .image-gallery {
                 display: flex;
                 justify-content: center;
@@ -178,6 +73,126 @@
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
                 object-fit: cover;
             }
+            .marquee {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.8);
+                color: #ff69b4;
+                font-size: 1.2rem;
+                text-align: center;
+                padding: 10px 0;
+                animation: marquee 10s linear infinite;
+            }
+            @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+            }
+            #music-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #ff69b4;
+                color: white;
+                border: none;
+                border-radius: 20px;
+                padding: 10px 20px;
+                font-family: 'Kanit', sans-serif;
+                cursor: pointer;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
         </style>
+    </head>
+    <body>
+        <h2 class="main-title">Welcome to Benz’s countdown gift card 💕</h2>
+        <div class="background-image"></div>
+        <div class="card">
+            <h1>To… เบนซ์แฟนที่น่ารักที่สุดของนิว 🦛💕</h1>
+            <p>
+                อีกไม่นานก็จะปีใหม่แล้วนะอ้วง! ที่ผ่านมาเค้ารู้สึกโชคดีมากที่มีอ้วนอยู่ในชีวิตเค้า อาจจะทำให้อ้วนเศร้าบ้างในปีนี้ เค้าขอโทษนะ เค้ารักอ้วนมากๆ ถึงจะงี่เง่าก็ตาม อะไรที่ไม่ดีทิ้งไว้ที่ปีที่แล้วนะ
+            </p>
+            <p>
+                ปีใหม่นี้ ขอให้อ้วนมีความสุขมากๆ ยิ้มเยอะๆ เค้าจะอยู่ข้างๆอ้วนเสมอ ไม่ว่าจะปีไหนหรือเวลาใด
+            </p>
+            <p class="signature">
+                โตไปด้วยกันนะงับอ้วน รักเบนซ์เสมอนะ 🤍
+            </p>
+        </div>
+        <div class="image-gallery">
+            <img src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/834aa2da-c043-42f3-bb8f-a1cc599325ad.png" alt="รูปที่ 1">
+            <img src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/PHOTO2.png" alt="รูปที่ 2">
+            <img src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/PHOTO3.png" alt="รูปที่ 3">
+        </div>
+        <div class="marquee">
+            🎉 สุขสันต์วันปีใหม่ 2025 ขอให้มีความสุขตลอดปีและตลอดไป 🎉
+        </div>
+        <audio id="background-music" loop>
+            <source src="https://www.bensound.com/bensound-music/bensound-buddy.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button id="music-button">🎵 Play Music</button>
+        <canvas id="fireworks"></canvas>
+        <script>
+            const music = document.getElementById("background-music");
+            const musicButton = document.getElementById("music-button");
+            let isPlaying = false;
+
+            musicButton.addEventListener("click", () => {
+                if (isPlaying) {
+                    music.pause();
+                    musicButton.textContent = "🎵 Play Music";
+                } else {
+                    music.play();
+                    musicButton.textContent = "⏸️ Pause Music";
+                }
+                isPlaying = !isPlaying;
+            });
+
+            const canvas = document.getElementById("fireworks");
+            const ctx = canvas.getContext("2d");
+            const particles = [];
+            const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#C70039", "#900C3F"];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener("resize", resizeCanvas);
+            resizeCanvas();
+
+            function createParticle(x, y) {
+                particles.push({
+                    x, y,
+                    size: Math.random() * 5 + 2,
+                    speedX: Math.random() * 4 - 2,
+                    speedY: Math.random() * 4 - 2,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    life: Math.random() * 60 + 30,
+                });
+            }
+
+            canvas.addEventListener("click", (e) => {
+                for (let i = 0; i < 50; i++) {
+                    createParticle(e.clientX, e.clientY);
+                }
+            });
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    p.life--;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    if (p.life <= 0) particles.splice(i, 1);
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+        </script>
     </body>
 </html>
