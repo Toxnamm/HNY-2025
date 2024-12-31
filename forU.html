@@ -1,30 +1,20 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
     <head>    
-        <!-- กำหนดการเข้ารหัสอักขระของเอกสาร HTML เป็น UTF-8 เพื่อรองรับภาษาต่างๆ -->
         <meta charset="UTF-8">
-        
-        <!-- กำหนดขนาดและสเกลของการแสดงผลให้เหมาะสมกับอุปกรณ์ที่ใช้ เช่น มือถือ -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- กำหนดชื่อของหน้าเว็บที่จะแสดงในแท็บเบราว์เซอร์ -->
         <title>Happy New Year to เบนซ์</title>
-        
-        <!-- ลิงก์ไปยัง Google Fonts สำหรับการโหลดฟอนต์ Kanit ที่มีน้ำหนัก 300, 500, และ 700 -->
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
-        
         <link
              rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
          />
-        
         <script
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
         ></script>
     </head>
     <body>
-        <!-- เพิ่มส่วนของรูปภาพพื้นหลังที่เลื่อนตามการเลื่อนหน้าจอ -->
         <div class="background-image"></div>
     
         <div class="card">
@@ -39,78 +29,77 @@
                 โตไปด้วยกันนะงับอ้วน รักเบนซ์เสมอนะ 🤍
             </p>
         </div>
-    
-        <!-- เพิ่มสคริปต์ DotLottie Player -->
-        <dotlottie-player src="path/to/your/lottie-file.lottie" autoplay loop controls sound="true"></dotlottie-player>
-        
-        <script>
-          window.onload = function() {
-            var audio = new Audio('https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/voice1.mp3');
-            audio.play();
-          };
-        </script>
-        
+
+        <!-- เพิ่มรูปภาพ 3 รูป -->
+        <div class="image-gallery">
+            <img src="https://githubusercontent.com/Toxnamm/HNY-2025/blob/main/834aa2da-c043-42f3-bb8f-a1cc599325ad.jpg" alt="รูปที่ 1">
+        </div>
+
         <style> 
-            /* กำหนดสไตล์ของ body */
             body {
-                font-family: 'Kanit', sans-serif; /* ใช้ฟอนต์ Kanit จาก Google Fonts */
-                margin: 0; /* เอาค่ามาร์จินออกทั้งหมด */
-                padding: 0; /* เอาค่าการจัดระยะห่างออกทั้งหมด */
-                display: flex; /* ใช้ Flexbox layout */
-                justify-content: center; /* จัดแนวเนื้อหากลางแนวนอน */
-                align-items: center; /* จัดแนวเนื้อหากลางแนวตั้ง */
-                height: 100vh; /* กำหนดความสูงของ body ให้เต็มหน้าจอ */
-                background: linear-gradient(to right, #fbc2eb, #a6c1ee); /* กำหนดพื้นหลังเป็นการไล่สีแบบ Gradient */
-                color: #4a4a4a; /* กำหนดสีตัวอักษร */
-                text-align: center; /* จัดข้อความให้อยู่กลาง */
-                padding: 20px; /* กำหนดการเว้นระยะห่างรอบๆ */
-                overflow-x: hidden; /* ป้องกันการเลื่อนในแนวนอน */
+                font-family: 'Kanit', sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+                color: #4a4a4a;
+                text-align: center;
+                padding: 20px;
+                overflow-x: hidden;
             }
-    
-            /* กำหนดรูปภาพที่จะใช้เป็นพื้นหลัง */
             .background-image {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url('https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/38030.png'); /* ใช้ URL ที่ถูกต้อง */
+                background-image: url('https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/38030.png');
                 background-position: center;
                 background-size: cover;
-                z-index: -1; /* ให้รูปภาพอยู่ด้านหลังเนื้อหา */
-                transform: translateZ(0);
-                will-change: transform;
+                z-index: -1;
             }
-    
-            /* สไตล์สำหรับ .card */
             .card {
-                background: #ffffff; /* สีพื้นหลังของการ์ด */
-                border-radius: 20px; /* มุมของการ์ดโค้งมน */
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* กำหนดเงาให้การ์ด */
-                padding: 20px 30px; /* การเว้นระยะห่างภายในการ์ด */
-                max-width: 400px; /* กำหนดความกว้างสูงสุดของการ์ด */
-                line-height: 1.8; /* กำหนดระยะห่างระหว่างบรรทัด */
+                background: #ffffff;
+                border-radius: 20px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 20px 30px;
+                max-width: 400px;
+                line-height: 1.8;
+                margin-bottom: 20px;
             }
-    
-            /* สไตล์สำหรับหัวข้อ h1 */
             h1 {
-                font-size: 2rem; /* ขนาดตัวอักษรของหัวข้อ */
-                margin: 10px 0; /* การเว้นระยะห่างด้านบนและล่าง */
-                color: #ff69b4; /* สีของข้อความ */
+                font-size: 2rem;
+                margin: 10px 0;
+                color: #ff69b4;
             }
-    
-            /* สไตล์สำหรับพารากราฟ */
             p {
-                font-size: 1.2rem; /* ขนาดตัวอักษรของพารากราฟ */
-                margin: 15px 0; /* การเว้นระยะห่างด้านบนและล่าง */
+                font-size: 1.2rem;
+                margin: 15px 0;
             }
-    
-            /* สไตล์สำหรับข้อความลายเซ็น */
             .signature {
-                margin-top: 20px; /* การเว้นระยะห่างด้านบน */
-                font-weight: 500; /* กำหนดความหนาของตัวอักษร */
-                font-size: 1.1rem; /* ขนาดตัวอักษร */
-                color: #ff7f50; /* สีของข้อความ */
+                margin-top: 20px;
+                font-weight: 500;
+                font-size: 1.1rem;
+                color: #ff7f50;
+            }
+
+            /* สไตล์สำหรับแกลเลอรี่รูปภาพ */
+            .image-gallery {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            }
+            .image-gallery img {
+                width: 100px;
+                height: 100px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                object-fit: cover;
             }
         </style>
     </body>
