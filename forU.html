@@ -12,6 +12,74 @@
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
         ></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const canvas = document.createElement("canvas");
+                canvas.id = "fireworks";
+                canvas.style.position = "fixed";
+                canvas.style.top = 0;
+                canvas.style.left = 0;
+                canvas.style.width = "100%";
+                canvas.style.height = "100%";
+                canvas.style.pointerEvents = "none";
+                document.body.appendChild(canvas);
+        
+                const ctx = canvas.getContext("2d");
+                const particles = [];
+                const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#C70039", "#900C3F"];
+        
+                function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+                window.addEventListener("resize", resizeCanvas);
+                resizeCanvas();
+        
+                function createParticle(x, y) {
+                    const particle = {
+                        x,
+                        y,
+                        size: Math.random() * 5 + 2,
+                        speedX: Math.random() * 4 - 2,
+                        speedY: Math.random() * 4 - 2,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        life: Math.random() * 60 + 30,
+                    };
+                    particles.push(particle);
+                }
+        
+                function animateParticles() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    for (let i = particles.length - 1; i >= 0; i--) {
+                        const p = particles[i];
+                        p.x += p.speedX;
+                        p.y += p.speedY;
+                        p.life--;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                        ctx.fillStyle = p.color;
+                        ctx.fill();
+        
+                        if (p.life <= 0) {
+                            particles.splice(i, 1);
+                        }
+                    }
+                }
+        
+                canvas.addEventListener("click", (e) => {
+                    for (let i = 0; i < 50; i++) {
+                        createParticle(e.clientX, e.clientY);
+                    }
+                });
+        
+                function loop() {
+                    animateParticles();
+                    requestAnimationFrame(loop);
+                }
+                loop();
+            });
+        </script>
+
     </head>
     <body>
         <!-- เพิ่มหัวข้อ HNY 2025 ที่ด้านบนของหน้า -->
