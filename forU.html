@@ -7,19 +7,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
         <style>
             body {
-                font-family: 'Kanit', sans-serif;
+                display: flex;
+                justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+                align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+                height: 100vh; /* ใช้ความสูงเต็มหน้าจอ */
                 margin: 0;
                 padding: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background: linear-gradient(to right, #fbc2eb, #a6c1ee);
-                color: #4a4a4a;
-                text-align: center;
-                padding: 20px;
-                overflow-x: hidden;
+                background-color: #fddde6; /* สีพื้นหลังที่เป็นสีชมพู */
+                background-image: url('background-image.png'); /* ใช้รูปพื้นหลังเดิม */
+                background-repeat: no-repeat;
+                background-size: cover;
             }
             .main-title {
                 font-size: 2rem;
@@ -38,14 +35,13 @@
                 z-index: -1;
             }
             .card {
+                max-width: 400px;
+                padding: 20px 30px;
                 background: #ffffff;
                 border-radius: 20px;
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 20px 30px;
-                max-width: 400px;
+                text-align: center; /* จัดข้อความในกล่องให้อยู่ตรงกลาง */
                 line-height: 1.8;
-                margin-bottom: 20px;
-                text-align: center;
             }
             h1 {
                 font-size: 1.3rem;
