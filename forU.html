@@ -43,11 +43,12 @@
         <!-- เพิ่มสคริปต์ DotLottie Player -->
         <dotlottie-player src="path/to/your/lottie-file.lottie" autoplay loop controls sound="true"></dotlottie-player>
         
-        <!-- เพิ่มเสียงในพื้นหลัง -->
-        <audio autoplay loop>
-            <source src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/voice1.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+        <script>
+          window.onload = function() {
+            var audio = new Audio('https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/voice1.mp3');
+            audio.play();
+          };
+        </script>
         
         <style> 
             /* กำหนดสไตล์ของ body */
