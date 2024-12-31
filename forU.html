@@ -30,7 +30,8 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                z-index: -2; /* วางพลุไว้ด้านหลังสุด */
+                z-index: 9999; /* ให้พลุอยู่บนสุด */
+                pointer-events: none; /* ให้พลุไม่ขัดการใช้งานอื่นๆ */
             }
 
             .main-title {
@@ -180,6 +181,7 @@
             const particles = [];
             const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#C70039", "#900C3F"];
 
+            // Resize the canvas to full screen
             function resizeCanvas() {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
@@ -191,37 +193,38 @@
                 particles.push({
                     x, y,
                     size: Math.random() * 5 + 2,
-                    speedX: Math.random() * 4 - 2,
-                    speedY: Math.random() * 4 - 2,
+                    speedX: Math.random() * 4 - 2,  // Random horizontal speed
+                    speedY: Math.random() * 4 - 2,  // Random vertical speed
                     color: colors[Math.floor(Math.random() * colors.length)],
                     life: Math.random() * 60 + 30,
                 });
             }
 
             function triggerFireworks() {
-                for (let i = 0; i < 50; i++) {
-                    createParticle(Math.random() * canvas.width, Math.random() * canvas.height);
-                }
+                // Create fireworks particles at random positions
+                createParticle(Math.random() * canvas.width, Math.random() * canvas.height);
             }
 
-            setInterval(triggerFireworks, 1500); // Trigger fireworks every 1.5 seconds
+            // Trigger fireworks every 1.5 seconds
+            setInterval(triggerFireworks, 100);
 
+            // Animation loop to draw particles
             function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas
                 for (let i = particles.length - 1; i >= 0; i--) {
                     const p = particles[i];
-                    p.x += p.speedX;
-                    p.y += p.speedY;
+                    p.x += p.speedX;  // Update X position
+                    p.y += p.speedY;  // Update Y position
                     p.life--;
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                     ctx.fillStyle = p.color;
                     ctx.fill();
-                    if (p.life <= 0) particles.splice(i, 1);
+                    if (p.life <= 0) particles.splice(i, 1);  // Remove dead particles
                 }
-                requestAnimationFrame(animateParticles);
+                requestAnimationFrame(animateParticles);  // Loop the animation
             }
-            animateParticles();
+            animateParticles();  // Start animation loop
         </script>
     </body>
 </html>
