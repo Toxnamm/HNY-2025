@@ -41,6 +41,22 @@
                 z-index: 2; /* ข้อความอยู่ข้างบน */
 		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* เพิ่มเงา */
             }
+	    .media-container {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin: 30px 0 ;
+		margin-bottom: 0 px 0;
+            }
+
+            .media-container video,
+            .media-container img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 10px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
 
             .background-image {
                 position: fixed;
@@ -61,7 +77,7 @@
                 padding: 20px 30px;
                 max-width: 400px;
                 line-height: 1.8;
-                margin-top: 50px;
+                margin-top: 0px;
                 margin-bottom: 0px;
                 position: relative;
                 z-index: 1; /* ตั้งให้ card อยู่ข้างบนของพลุ */
@@ -135,6 +151,18 @@
     </head>
     <body>
         <h2 class="main-title">Welcome to Benz’s countdown gift card 💕</h2>
+
+	<!-- เพิ่มวิดีโอและรูปภาพ -->
+	<div class="media-container">
+  	  <video autoplay loop muted>
+	        <source src="https://github.com/Toxnamm/HNY-2025/raw/main/757346942.847828.mp4" type="video/mp4">
+ 	       Your browser does not support the video tag.
+	    </video>
+	    <img src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/S__36306959.jpg" alt="รูปภาพ 1">
+ 	   <img src="https://raw.githubusercontent.com/Toxnamm/HNY-2025/main/S__36306970.jpg" alt="รูปภาพ 2">
+	</div>
+
+
         <div class="background-image"></div>
         <div class="card">
             <h1>To… เบนซ์แฟนที่น่ารักที่สุดของนิว 🦛💕</h1>
